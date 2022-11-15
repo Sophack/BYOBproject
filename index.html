@@ -24,7 +24,32 @@
     <body>
         <!-- 
         updating HTML file by saraf let me know if you guys see this change -->
-        
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <input type="checkbox" aria-label="Checkbox for following text input"> Search!
+              </div>
+            </div>
+            <input type="text" class="form-control" aria-label="Text input with checkbox">
+          </div>
+          
+          
+          
+          <div class="input-group">
+            <input type="text" class="form-control" aria-label="Text input with dropdown button">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select a format...</button>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Format1</a>
+                <a class="dropdown-item" href="#">Format2</a>
+                <a class="dropdown-item" href="#">Format3</a>
+                <div role="separator" class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Separated link</a>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
         <script src="script.js"></script>
         <script
             src="https://code.jquery.com/jquery-3.6.1.min.js"
