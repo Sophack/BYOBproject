@@ -1,41 +1,76 @@
-# BYOBproject
-This is a group project where everyone is requested to bring your own brain!
+# Module 06 Mini-Project: Library of Congress Search Tool
 
+In this activity, you will work with a group to build an application that searches and displays results from the Library of Congress API.
 
-Summary of the requirements outlined on project module: 
+## Instructions
 
-1. Use a CSS framework other than Bootstrap.
+The completed application should meet the following criteria:
 
-2. Be deployed to GitHub Pages.
+* As a user, I can submit a search query from the application to request data and receive a response from the Library of Congress.
 
-3. Be interactive (in other words, accept and respond to user input).
+* As a user, I can either perform a generic search for data in all formats or I can select a format in the form to help filter results.
 
-4. Use at least two server-side APIs Links to an external site..
+* As a user, I can see all of the results of my search displayed on a separate page.
 
-5. Use modals instead of alerts, confirms, or prompts.
+* As a user, I can conduct additional searches from the results page as well.
 
-6. Use client-side storage to store persistent data.
+To learn about how to use this API, check out the Requests section of the [Library of Congress API documentation](https://libraryofcongress.github.io/data-exploration/).
 
-7. Be responsive.
+### The Homepage
 
-8. Have a polished UI.
+The homepage (`index.html`) should have the following:
 
-9. Have a clean repository that meets quality coding standards (file structure, naming conventions, best practices for class/id naming conventions, indentation, quality comments, and so on).
+* A simple, well thought-out UI.
 
-10. Have a quality README (including a unique name, description, technologies used, screenshot, and link to the deployed application).
+* A form with a text input field to capture a search query and an option select dropdown to capture the format of the search query. The options in the dropdown should be a list of the possible format values listed in the [Library of Congress API documentation on requests](https://libraryofcongress.github.io/data-exploration/requests.html#format).
 
-##  Presentation Requirements
+* A browser event listener attached to the form to execute a function on submission, which will capture both form values and redirect the user to a search results page with those values included in the URL as query parameters. This will use the browser's `location.replace()` method.
 
-Use this Project Presentation Template Links to an external site.to address the following:
+* If there is no format selected from the dropdown, the URL should look something like the following example:
 
-*Elevator pitch: A one-minute description of your application.
+  ```http
+  /search-results.html?q=dogs&format=
+  ```
 
-*Concept: What is your user story? What was your motivation for development?
+* If there is a format selected from the dropdown, the URL should look something like the following example:
 
-*Process: What were the technologies used? How were tasks and roles broken down and assigned? What challenges did you encounter? What were your successes?
+  ```http
+  /search-results.html?q=dogs&format=photos
+  ```
 
-*Demo: Show your stuff!
+### The Search Results Page
 
-*Directions for future development.
+The search results page (`search-results.html`) should have and do the following:
 
-*Links to the deployed application and the GitHub repository.
+* On page load, if there are query parameters, immediately parse them and use them in a request URL to fetch data from the Library of Congress API.
+
+* If there is a value for the format query parameter, use the format endpoint to search for something based on the chosen format. For more information, see the [Library of Congress API documentation on the format endpoint](https://libraryofcongress.github.io/data-exploration/requests.html#format).
+
+* If there is no value for the format query parameter, use the search endpoint to search for all types of data. For more information, see the [Library of Congress API documentation on the search endpoint](https://libraryofcongress.github.io/data-exploration/requests.html#search).
+
+* The response from the API request will then be displayed on the page. It is up to you and your team to determine which data should be displayed from the overall `response` object, but you must use data from the `results` property in the `response` object. For more information, see the [Library of Congress API documentation on responses](https://libraryofcongress.github.io/data-exploration/responses.html).
+
+* The same form from the homepage should be here as well. Instead of redirecting a user to another page, however, it will perform a search right on the page and display the new results.
+
+## Assets
+
+The following image demonstrates the homepage's appearance and functionality:
+
+![The home page shows a search bar with the ability to select a format from a dropdown menu.](./Images/01-homepage.png)
+
+The following image demonstrates the search results page's appearance and functionality:
+
+![The search results page displays results from a search conducted in the form on the left side of the page.](./Images/02-search-results-page.png)
+
+---
+
+## 💡 Hints
+
+Will every result have the same data? If not, how will we handle printing it to the page? Can the form design and functionality from the homepage be reused for the search results page?
+
+## 🏆 Bonus
+
+* How can we build this application using our knowledge in Git collaboration?
+
+---
+© 2022 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
